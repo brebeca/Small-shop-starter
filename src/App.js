@@ -3,6 +3,7 @@ import "./Menu.css";
 import Cart from "./Cart";
 import Filters from "./Filters";
 import Product from "./Product";
+import NavBar from "./NavBar";
 
 // 1. Impartim in componente
 // 2. Generam produsele cu map
@@ -11,21 +12,7 @@ import Product from "./Product";
 function App() {
   return (
     <>
-      <nav>
-        <a href="/">Home</a>
-        <ul className="list">
-          <li>
-            <a href="/">About</a>
-          </li>
-          <li>
-            <a href="/">All products</a>
-          </li>
-          <li>
-            <a href="/">Contact</a>
-          </li>
-        </ul>
-        {/* <button class="search">Search</button> */}
-      </nav>
+      <NavBar />
       <div className="wrapper">
         <Filters
           products={[
