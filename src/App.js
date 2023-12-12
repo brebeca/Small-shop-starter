@@ -6,16 +6,14 @@ import Product from "./Product";
 import NavBar from "./NavBar";
 import { useEffect, useState } from "react";
 
-// 1. Impartim in componente
-// 2. Generam produsele cu map
-// 3. Luam produsele din api cu useEffect: https://fakestoreapi.com/products
-
 function App() {
   const [prod, setProd] = useState([]);
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
-      .then((response2) => setProd(response2));
+      .then((response2) => setProd(response2))
+      .catch((err) => console.log(err));
   }, []);
 
   const products = prod.map((product) => {
@@ -34,15 +32,7 @@ function App() {
     <>
       <NavBar />
       <div className="wrapper">
-        <Filters
-          products={[
-            { category: "category1" },
-            { category: "category2" },
-            { category: "category3" },
-            { category: "category4" },
-            { category: "category5" },
-          ]}
-        />
+        <Filters products={prod} />
 
         <div>
           <h1>Products</h1>

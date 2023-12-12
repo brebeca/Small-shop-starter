@@ -1,9 +1,12 @@
 import "./Filters.css";
 
+// {1,2,3,9}
 const Filters = ({ products }) => {
-  const categories = [
-    ...new Set(products.map((product) => product.category)),
-  ].map((category) => (
+  const allCategories = products.map((product) => product.category);
+  const setCategories = new Set(allCategories);
+  const arrayCategories = [...setCategories];
+
+  const categories = arrayCategories.map((category) => (
     <div key={category} className="category">
       <button className="filter-btn">{category}</button>
     </div>

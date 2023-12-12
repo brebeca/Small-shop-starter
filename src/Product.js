@@ -1,4 +1,6 @@
+import { useState } from "react";
 const Product = (props) => {
+  const [disableBut, setdisableBut] = useState(false);
   return (
     <div className="prod-container">
       <img className="prod-img" src={props.img} alt={"img"} />
@@ -14,10 +16,18 @@ const Product = (props) => {
         </p>
       </div>
       {/* add to redux state */}
-      <button className="add-btn">Add to cart</button>
+      <button
+        className="add-btn"
+        disabled={disableBut}
+        onClick={() => {
+          props.setcartItems(props.cartItems + 1);
+          setdisableBut(true);
+        }}
+      >
+        Add to cart
+      </button>
       {/* <button className="remove-btn">Already in cart</button> */}
     </div>
   );
 };
-
 export default Product;
