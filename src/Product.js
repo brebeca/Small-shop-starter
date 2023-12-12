@@ -14,7 +14,7 @@ const Product = (props) => {
         </p>
       </div>
       {/* add to redux state */}
-      <button className="add-btn">Add to cart</button>
+      <button className="add-btn" onClick={() => props.setcartItems(props.cartItems+1)}>Add to cart</button>
       {/* <button className="remove-btn">Already in cart</button> */}
     </div>
   );

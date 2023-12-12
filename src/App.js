@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [prod, setProd] = useState([]);
+  const [cartItems, setcartItems] = useState(0)
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
@@ -26,6 +27,8 @@ function App() {
         title={product.title}
         price={product.price}
         rating={product.rating.rate}
+        cartItems = {cartItems}
+        setcartItems = {setcartItems}
       />
     );
   });
@@ -53,7 +56,7 @@ function App() {
           <div className="prod-grid">{products}</div>
         </div>
 
-        <Cart />
+        <Cart cartItems={cartItems}/>
       </div>
     </>
   );
