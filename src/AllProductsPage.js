@@ -3,12 +3,12 @@ import "./Menu.css";
 import Cart from "./Cart";
 import Filters from "./Filters";
 import Product from "./Product";
-import NavBar from "./NavBar";
 import { useEffect, useState } from "react";
 
 function AllProductsPage() {
   const [prod, setProd] = useState([]);
   const [cartItems, setcartItems] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -17,25 +17,26 @@ function AllProductsPage() {
       .catch((err) => console.log(err));
   }, []);
 
-  const products = prod.map((product) => {
-    return (
-      <Product
-        key={product.image}
-        img={product.image}
-        title={product.title}
-        price={product.price}
-        rating={product.rating.rate}
-        cartItems={cartItems}
-        setcartItems={setcartItems}
-      />
-    );
-  });
+  const products = prod
+    .filter((product) => product.category === selectedCategory)
+    .map((product) => {
+      return (
+        <Product
+          key={product.image}
+          img={product.image}
+          title={product.title}
+          price={product.price}
+          rating={product.rating.rate}
+          cartItems={cartItems}
+          setcartItems={setcartItems}
+        />
+      );
+    });
 
   return (
     <>
-      <NavBar />
       <div className="wrapper">
-        <Filters products={prod} />
+        <Filters products={prod} setSelectedCategory={setSelectedCategory} />
 
         <div>
           <h1>Products</h1>

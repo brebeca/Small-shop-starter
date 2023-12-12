@@ -1,14 +1,20 @@
 import "./Filters.css";
 
-// {1,2,3,9}
-const Filters = ({ products }) => {
+const Filters = ({ products, setSelectedCategory }) => {
   const allCategories = products.map((product) => product.category);
   const setCategories = new Set(allCategories);
   const arrayCategories = [...setCategories];
 
   const categories = arrayCategories.map((category) => (
     <div key={category} className="category">
-      <button className="filter-btn">{category}</button>
+      <button
+        className="filter-btn"
+        onClick={() => {
+          setSelectedCategory(category);
+        }}
+      >
+        {category}
+      </button>
     </div>
   ));
 

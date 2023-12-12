@@ -12,37 +12,15 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <NavBar />
+      <Cart cartItems={0} />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <NavBar />
-              <h1>Home</h1>
-            </>
-          }
-        />
+        <Route path="/" element={<h1>Home</h1>} />
         <Route path="/allProduct" element={<AllProductsPage />} />
-        <Route
-          path="/about"
-          element={
-            <>
-              <NavBar />
-              <h1>About</h1>
-              <Cart cartItems={0} />
-            </>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <>
-              <NavBar />
-              <h1>Contact</h1>
-            </>
-          }
-        />
+        <Route path="/about" element={<h1>About</h1>} />
+        <Route path="/contact" element={<h1>Contact</h1>} />
       </Routes>
+      <footer>Footer</footer>
     </BrowserRouter>
   </React.StrictMode>
 );
