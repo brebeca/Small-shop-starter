@@ -6,7 +6,7 @@ import Product from "./Product";
 import NavBar from "./NavBar";
 import { useEffect, useState } from "react";
 
-function App() {
+function AllProductsPage() {
   const [prod, setProd] = useState([]);
   const [cartItems, setcartItems] = useState(0);
 
@@ -52,4 +52,4 @@ function App() {
   );
 }
 
-export default App;
+export default AllProductsPage;
