@@ -15,7 +15,7 @@ function AllProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState(queryParamCategory);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products/")
       .then((response) => response.json())
       .then((response2) => {
         setProd(response2);
@@ -30,6 +30,7 @@ function AllProductsPage() {
     .map((product) => {
       return (
         <Product
+          id={product.id}
           key={product.image}
           img={product.image}
           title={product.title}

@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const Product = (props) => {
   const [disableBut, setdisableBut] = useState(false);
+
   return (
     <div className="prod-container">
-      <img className="prod-img" src={props.img} alt={"img"} />
-      <p className="prod-title">{props.title}</p>
+      <Link to={`/products/${props.id}`}>
+        <img className="prod-img" src={props.img} alt={"img"} />
+        <p className="prod-title">{props.title}</p>
+      </Link>
+
       <div className="price-container">
         <p>
           <small>$</small>
