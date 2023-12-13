@@ -1,6 +1,9 @@
 import "./Filters.css";
+import { useSearchParams } from "react-router-dom";
+
 
 const Filters = ({ products, setSelectedCategory }) => {
+  const [, setQueryParams] = useSearchParams();
   const allCategories = products.map((product) => product.category);
   const setCategories = new Set(allCategories);
   const arrayCategories = [...setCategories];
@@ -10,6 +13,7 @@ const Filters = ({ products, setSelectedCategory }) => {
       <button
         className="filter-btn"
         onClick={() => {
+          setQueryParams({ category });
           setSelectedCategory(category);
         }}
       >
