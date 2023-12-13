@@ -13,12 +13,16 @@ function AllProductsPage() {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
-      .then((response2) => setProd(response2))
+      .then((response2) => {
+        setProd(response2);
+      })
       .catch((err) => console.log(err));
   }, []);
 
   const products = prod
-    .filter((product) => product.category === selectedCategory)
+    .filter(
+      (product) => !selectedCategory || product.category === selectedCategory
+    )
     .map((product) => {
       return (
         <Product
@@ -40,9 +44,9 @@ function AllProductsPage() {
 
         <div>
           <h1>Products</h1>
-          <div className="found">
+          {/* <div className="found">
             <p>3 products for selected category</p>
-          </div>
+          </div> */}
 
           <div className="prod-grid">{products}</div>
         </div>
