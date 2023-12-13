@@ -4,11 +4,15 @@ import Cart from "./Cart";
 import Filters from "./Filters";
 import Product from "./Product";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function AllProductsPage() {
+  const [queryParams, setQueryParams] = useSearchParams();
+  const queryParamCategory = queryParams.get("category");
+
   const [prod, setProd] = useState([]);
   const [cartItems, setcartItems] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(queryParamCategory);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")

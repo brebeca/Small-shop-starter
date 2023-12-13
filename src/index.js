@@ -19,6 +19,7 @@ root.render(
         <Route path="/allProduct" element={<AllProductsPage />} />
         <Route path="/about" element={<h1>About</h1>} />
         <Route path="/contact" element={<h1>Contact</h1>} />
+        <Route path="*" element={<h1>404</h1>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
