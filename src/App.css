@@ -19,6 +19,21 @@
   margin-right: 10px;
 }
 
+.prod-container2 {
+  width: 300px;
+  box-shadow: rgba(61, 79, 97, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 30px;
+  cursor: default;
+  outline: none;
+  margin-right: 10px;
+}
+
 .prod-img {
   width: 100%;
   height: 270px;
